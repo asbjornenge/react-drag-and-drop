@@ -2,7 +2,7 @@ import testdom   from 'testdom'
 import React     from 'react/addons'
 import assert    from 'assert'
 import nanodom   from 'nanodom'
-import { Draggable, Droppable } from '../index'
+import { Draggable, Droppable } from '../src/index'
 
 let TestUtils = React.addons.TestUtils
 testdom('<html><body></body></html>')
