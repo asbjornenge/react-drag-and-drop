@@ -37,6 +37,6 @@ class App extends React.Component {
 }
 ```
 
-You can also hook into the different drag events to create more funk. The best way (for now) to figure out how is to peak inside the <code>src</code> directory. The implementation is quite minimal.
+So the idea is that you wrap your components in *Draggable* and *Droppable* containers (instead of using mixins), define *types* and *data* to carry. You can also hook into the different drag events to create more funk. The best way (for now) to figure out how is to peak inside the <code>src</code> directory. The implementation is quite minimal.
 
 enjoy
