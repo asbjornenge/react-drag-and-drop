@@ -1,0 +1,27 @@
+{
+  "name": "react-drag-and-drop",
+  "version": "1.0.0",
+  "description": "Basic Drag and Drop for React",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha -R nyan -w --check-leaks"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/asbjornenge/react-drag-and-drop.git"
+  },
+  "keywords": [
+    "react",
+    "react-component",
+    "drag-and-drop"
+  ],
+  "author": "Asbjorn Enge <asbjorn@hanafjedle.net>",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/asbjornenge/react-drag-and-drop/issues"
+  },
+  "homepage": "https://github.com/asbjornenge/react-drag-and-drop"
+}
