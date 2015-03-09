@@ -2,7 +2,7 @@
   "name": "react-drag-and-drop",
   "version": "1.0.0",
   "description": "Basic Drag and Drop for React",
-  "main": "build.js",
+  "main": "lib/index.js",
   "directories": {
     "test": "test"
   },
