@@ -2,12 +2,13 @@
   "name": "react-drag-and-drop",
   "version": "1.0.0",
   "description": "Basic Drag and Drop for React",
-  "main": "index.js",
+  "main": "build.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "mocha -R nyan -w --check-leaks"
+    "test": "mocha -R nyan -w --check-leaks --require babel/register",
+    "build": "babel index.js > build.js"
   },
   "repository": {
     "type": "git",
@@ -23,5 +24,13 @@
   "bugs": {
     "url": "https://github.com/asbjornenge/react-drag-and-drop/issues"
   },
-  "homepage": "https://github.com/asbjornenge/react-drag-and-drop"
+  "homepage": "https://github.com/asbjornenge/react-drag-and-drop",
+  "devDependencies": {
+    "babel": "^4.7.4",
+    "babelify": "^5.0.4",
+    "mochify": "^2.6.0",
+    "nanodom": "0.0.3",
+    "react": "^0.13.0-rc2",
+    "testdom": "^1.0.1"
+  }
 }
