@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "mocha -R nyan -w --check-leaks --require babel/register",
-    "build": "babel index.js > build.js"
+    "build": "babel src/ --out-dir lib"
   },
   "repository": {
     "type": "git",
