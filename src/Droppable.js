@@ -1,4 +1,5 @@
 import React from 'react'
+import utils from './utils'
 
 export default class Droppable extends React.Component {
     constructor(props) {
@@ -54,9 +55,10 @@ export default class Droppable extends React.Component {
         if (typeof this.props.onDrop === 'function') this.props.onDrop(data, e)
     }
     allowed(attemptingTypes) {
+        let _attemptingTypes = utils.toArray(attemptingTypes)
         if (!this.props.types) return true
         return [].concat(this.props.types).reduce((sum, type) => {
-            if (attemptingTypes.indexOf(type) >= 0) return true
+            if (_attemptingTypes.indexOf(type) >= 0) return true
             return sum
         }, false)
     }
