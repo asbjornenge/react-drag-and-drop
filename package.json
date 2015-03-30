@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha -R nyan -w --check-leaks --require babel/register",
+    "test": "mocha -R nyan -w --check-leaks --compilers js:babel/register",
     "build": "babel src/ --out-dir lib"
   },
   "repository": {
