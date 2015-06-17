@@ -41,6 +41,10 @@ So the idea is that you wrap your components in *Draggable* and *Droppable* cont
 
 ## Changelog
 
+### 1.1.0
+
+* Spreading this.props on both Draggable and Droppable
+
 ### 1.0.1
 
 * Added FireFox support (DOMStringList -> Array)
