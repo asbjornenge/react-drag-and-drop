@@ -7,6 +7,7 @@
     "test": "test"
   },
   "scripts": {
+    "start": "budo demo.js --live -- -t babelify",
     "test": "mocha -R nyan -w --check-leaks --compilers js:babel/register",
     "build": "babel src/ --out-dir lib"
   },
@@ -28,6 +29,7 @@
   "devDependencies": {
     "babel": "^4.7.4",
     "babelify": "^5.0.4",
+    "budo": "^4.0.0",
     "mochify": "^2.6.0",
     "nanodom": "0.0.3",
     "react": "^0.13.0-rc2",
