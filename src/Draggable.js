@@ -3,7 +3,7 @@ import React from 'react'
 export default class Draggable extends React.Component {
     render() {
         return (
-            <div draggable="true"
+            <div draggable="true" {...this.props}
                     onDragEnd={this.onDragEnd.bind(this)}
                     onDragStart={this.onDragStart.bind(this)}> 
                 {this.props.children}
