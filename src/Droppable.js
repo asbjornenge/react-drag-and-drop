@@ -12,7 +12,7 @@ export default class Droppable extends React.Component {
         var classes = 'Droppable'
         if (this.state.over) classes+=' over'
         return (
-            <div ref="droppable" className={classes}
+            <div ref="droppable" className={classes} {...this.props}
                     onDrop={this.onDrop.bind(this)}
                     onDragOver={this.onDragOver.bind(this)}
                     onDragEnter={this.onDragEnter.bind(this)}
