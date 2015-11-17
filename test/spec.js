@@ -1,11 +1,12 @@
 import testdom   from 'testdom'
-import React     from 'react/addons'
+import React     from 'react'
+import ReactDOM  from 'react-dom'
+import TestUtils from 'react-addons-test-utils'
 import assert    from 'assert'
 import nanodom   from 'nanodom'
 import { Draggable, Droppable } from '../src/index'
 
-let TestUtils = React.addons.TestUtils
-testdom('<html><body></body></html>')
+testdom('<html><body><div id="app"></div></body></html>')
 
 class App extends React.Component {
     render() {
@@ -25,7 +26,7 @@ class App extends React.Component {
 describe('drag-and-drop', () => {
 
     before((done) => {
-        React.render(<App />, document.body, done) 
+        ReactDOM.render(<App />, document.querySelector('#app'), done) 
     })
 
     it('wraps droppable in a container', () => {
