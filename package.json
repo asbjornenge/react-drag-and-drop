@@ -21,7 +21,7 @@
     "drag-and-drop"
   ],
   "author": "Asbjorn Enge <asbjorn@hanafjedle.net>",
-  "license": "BSD",
+  "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/asbjornenge/react-drag-and-drop/issues"
   },
@@ -30,9 +30,11 @@
     "babel": "^4.7.4",
     "babelify": "^5.0.4",
     "budo": "^4.0.0",
+    "mocha": "^2.3.4",
     "mochify": "^2.6.0",
     "nanodom": "0.0.3",
     "react": "^0.14.2",
+    "react-addons-test-utils": "^0.14.2",
     "react-dom": "^0.14.2",
     "testdom": "^1.0.1"
   }
