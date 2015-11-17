@@ -41,6 +41,10 @@ So the idea is that you wrap your components in *Draggable* and *Droppable* cont
 
 ## Changelog
 
+### 2.0.1
+
+* Did a build (forgot for 2.0.0 release) :facepalm:
+
 ### 2.0.0
 
 * Updated to remove warning for React v0.14
