@@ -1,4 +1,5 @@
 import React     from 'react'
+import ReactDOM  from 'react-dom'
 import Draggable from './src/Draggable'
 import Droppable from './src/Droppable'
 
@@ -55,4 +56,4 @@ class Demo extends React.Component {
     }
 }
 
-React.render(<Demo />, document.body)
+ReactDOM.render(<Demo />, document.body)

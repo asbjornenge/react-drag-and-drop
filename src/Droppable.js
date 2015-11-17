@@ -64,7 +64,7 @@ export default class Droppable extends React.Component {
     }
     componentDidMount() {
         // TODO: Listen for window resize?
-        var node  = this.refs.droppable.getDOMNode()
+        var node  = this.refs.droppable;
         this.position = {
             top    : node.offsetTop+5,
             left   : node.offsetLeft+5,
