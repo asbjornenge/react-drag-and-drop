@@ -2,10 +2,15 @@ import React from 'react'
 
 export default class Draggable extends React.Component {
     render() {
+        let props = Object.assign({}, this.props)
+        if (this.props.enabled) {
+            props.draggable   = 'true'
+            props.onDragEnd   = this.onDragEnd.bind(this)
+            props.onDragStart = this.onDragStart.bind(this)
+        }
+        delete props.enabled
         return (
-            <div draggable="true" {...this.props}
-                    onDragEnd={this.onDragEnd.bind(this)}
-                    onDragStart={this.onDragStart.bind(this)}> 
+            <div {...props}> 
                 {this.props.children}
             </div>
         )
@@ -17,4 +22,8 @@ export default class Draggable extends React.Component {
     onDragEnd(e) {
         if (typeof this.props.onDragEnd === 'function') this.props.onDragEnd(e)
     }
+}
+
+Draggable.defaultProps = {
+    enabled: true
 }

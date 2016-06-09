@@ -7,7 +7,7 @@ class Demo extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            draggable : ['drag','us','plz'],
+            draggable : ['drag','us','plz','but-not-me'],
             dropped   : '',
             hovering  : false
         }
@@ -16,7 +16,7 @@ class Demo extends React.Component {
         let draggable = this.state.draggable.map((title, index) => {
             return (
                 <li key={title}>
-                    <Draggable type="yolo" data={title}>{title}</Draggable>
+                    <Draggable enabled={index < 3} type="yolo" data={title}>{title}</Draggable>
                 </li>
             )
         })
