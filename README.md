@@ -41,7 +41,7 @@ So the idea is that you wrap your components in *Draggable* and *Droppable* cont
 
 ## Changelog
 
-### 2.0.1
+### 2.0.2
 
 * Support for enable prop in Draggable component
 
