@@ -1,5 +1,6 @@
 import React from 'react'
 import utils from './utils'
+import blacklist from 'blacklist'
 
 export default class Droppable extends React.Component {
     constructor(props) {
@@ -10,9 +11,10 @@ export default class Droppable extends React.Component {
     }
     render() {
         var classes = 'Droppable'
+        var properties = blacklist(this.props, 'types')
         if (this.state.over) classes+=' over'
         return (
-            <div ref="droppable" className={classes} {...this.props}
+            <div ref="droppable" className={classes} {properties}
                     onDrop={this.onDrop.bind(this)}
                     onDragOver={this.onDragOver.bind(this)}
                     onDragEnter={this.onDragEnter.bind(this)}
