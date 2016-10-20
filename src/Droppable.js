@@ -10,14 +10,9 @@ export default class Droppable extends React.Component {
     }
     render() {
         var classes = 'Droppable'
-        const {
-            types,
-            customProps
-         } = this.props;
-
         if (this.state.over) classes+=' over'
         return (
-            <div ref="droppable" className={classes} {...customProps}
+            <div ref="droppable" className={classes} {...this.filterProps()}
                     onDrop={this.onDrop.bind(this)}
                     onDragOver={this.onDragOver.bind(this)}
                     onDragEnter={this.onDragEnter.bind(this)}
@@ -26,6 +21,15 @@ export default class Droppable extends React.Component {
                 {this.props.children}
             </div>
         )
+    }
+    filterProps() {
+        let forbidden = ['types']
+        return Object.keys(this.props).reduce((p, c) => {
+            if (!forbidden.includes(c)) {
+                p[c] = this.props[c]
+            }
+            return p
+        }, {})
     }
     onDragOver(e) {
         e.preventDefault()
