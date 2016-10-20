@@ -33,9 +33,9 @@
     "mocha": "^2.3.4",
     "mochify": "^2.6.0",
     "nanodom": "0.0.3",
-    "react": "^0.14.2",
-    "react-addons-test-utils": "^0.14.2",
-    "react-dom": "^0.14.2",
+    "react": "^15.3.2",
+    "react-addons-test-utils": "^15.3.2",
+    "react-dom": "^15.3.2",
     "testdom": "^1.0.1"
   }
 }
