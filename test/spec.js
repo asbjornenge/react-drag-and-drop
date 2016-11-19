@@ -1,8 +1,10 @@
 import testdom   from 'testdom'
 import React     from 'react'
-import ReactDOM  from 'react-dom'
-import TestUtils from 'react-addons-test-utils'
-import assert    from 'assert'
+import ReactDOM  from 'react-dom';
+import {mount, shallow} from 'enzyme';
+import TestUtils from 'react-addons-test-utils';
+import expect from 'expect';
+import assert    from 'assert';
 import nanodom   from 'nanodom'
 import { Draggable, Droppable } from '../src/index'
 
@@ -26,7 +28,7 @@ class App extends React.Component {
 describe('drag-and-drop', () => {
 
     before((done) => {
-        ReactDOM.render(<App />, document.querySelector('#app'), done) 
+        ReactDOM.render(<App />, document.querySelector('#app'), done)
     })
 
     it('wraps droppable in a container', () => {
@@ -35,6 +37,12 @@ describe('drag-and-drop', () => {
         })
         assert(drop[0].parentNode.className == 'Droppable')
     })
+
+    it(`appends "props className" with Droppable class`, () => {
+       let anyOtherClass = "anyotherclass-something";
+       const wrapper = mount(<Droppable className={anyOtherClass} />);
+       expect(wrapper.find(`.Droppable.${anyOtherClass}`).length).toEqual(1);
+    });
 
     it('wraps draggable in a container and marks it as draggable', () => {
         let drag = nanodom('div').filter((div) => {
@@ -46,5 +54,3 @@ describe('drag-and-drop', () => {
     // TODO: Add more and relevat tests
 
 })
-
-
