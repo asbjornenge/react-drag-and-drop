@@ -41,6 +41,10 @@ So the idea is that you wrap your components in *Draggable* and *Droppable* cont
 
 ## Changelog
 
+### 2.2.0
+
+* Droppable now accepts `className` as prop - thanks @abdennour :tada:
+
 ### 2.1.0
 
 * Support for React 15
