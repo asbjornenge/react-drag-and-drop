@@ -9,8 +9,9 @@ export default class Droppable extends React.Component {
         }
     }
     render() {
-        var classes = 'Droppable'
-        if (this.state.over) classes+=' over'
+        var classes = 'Droppable';
+        if(this.props.className) classes+=` ${this.props.className}`;
+        if (this.state.over) classes+=' over';
         return (
             <div ref="droppable" className={classes} {...this.filterProps()}
                     onDrop={this.onDrop.bind(this)}
@@ -23,7 +24,7 @@ export default class Droppable extends React.Component {
         )
     }
     filterProps() {
-        let forbidden = ['types']
+        let forbidden = ['types', 'className']
         return Object.keys(this.props).reduce((p, c) => {
             if (!forbidden.includes(c)) {
                 p[c] = this.props[c]
@@ -48,7 +49,7 @@ export default class Droppable extends React.Component {
         if (!this.allowed(e.dataTransfer.types)) return
         let over = true
         if (e.clientX <= this.position.left || e.clientX >= this.position.right)  over = false
-        if (e.clientY <= this.position.top  || e.clientY >= this.position.bottom) over = false 
+        if (e.clientY <= this.position.top  || e.clientY >= this.position.bottom) over = false
         if (over) return
         this.setState({ over : false })
         if (typeof this.props.onDragLeave === 'function') this.props.onDragLeave(e)
@@ -82,4 +83,3 @@ export default class Droppable extends React.Component {
         }
     }
 }
-
