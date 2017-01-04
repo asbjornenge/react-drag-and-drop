@@ -39,6 +39,7 @@
     "react": "^15.3.2",
     "react-addons-test-utils": "^15.3.2",
     "react-dom": "^15.3.2",
+    "sinon": "^1.17.7",
     "testdom": "^1.0.1"
   }
 }
