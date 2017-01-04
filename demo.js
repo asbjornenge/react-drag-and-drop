@@ -28,13 +28,23 @@ class Demo extends React.Component {
             <div>
                 <ul>{draggable}</ul>
                 <div style={{border:'1px solid red', width:'200px',height:'200px', position:'relative'}}>
-                    <span style={{position:'absolute',float:'left'}}>Drop zone...</span>
+                    <span style={{position:'absolute',float:'left'}}>Drop here...</span>
                     <Droppable 
                         types={['yolo']} 
                         style={droppableStyle} 
                         onDrop={this.onDrop.bind(this)}
                         onDragEnter={this.onDragEnter.bind(this)}
                         onDragLeave={this.onDragLeave.bind(this)}>
+                        <div style={{textAlign:'center', lineHeight:'100px'}}>{this.state.dropped}</div>
+                    </Droppable>
+                </div>
+                <div style={{border:'1px solid red', width:'200px',height:'200px', position:'relative'}}>
+                    <span style={{position:'absolute',float:'left'}}>But not here...</span>
+                    <Droppable
+                        enabled={false}
+                        style={{height: '200px'}} 
+                        types={['yolo']} 
+                        onDrop={this.onDrop.bind(this)}>
                         <div style={{textAlign:'center', lineHeight:'100px'}}>{this.state.dropped}</div>
                     </Droppable>
                 </div>
