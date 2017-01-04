@@ -64,4 +64,11 @@ describe('drag-and-drop', () => {
       assert(onDrop.calledOnce)
     })
 
+    it('supports disabling Draggable', () => {
+      const enabled = mount(<Draggable enabled={true} />)
+      assert(enabled.find('div').props('draggable').draggable)
+      const disabled = mount(<Draggable enabled={false} />)
+      assert(!disabled.find('div').props('draggable').draggable)
+    })
+
 })
