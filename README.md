@@ -41,6 +41,10 @@ So the idea is that you wrap your components in *Draggable* and *Droppable* cont
 
 ## Changelog
 
+### 2.3.0
+
+* Support for `enabled` prop for Droppable component
+
 ### 2.2.0
 
 * Droppable now accepts `className` as prop - thanks @abdennour :tada:
