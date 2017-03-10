@@ -6,7 +6,7 @@ function pickTypes(e) {
 }
 
 function filterProps(props) {
-  let forbidden = ['types', 'className', 'enabled']
+  const forbidden = ['types', 'className', 'enabled', 'tag']
   return Object.keys(props).reduce((p, c) => {
     if (!forbidden.includes(c)) {
       p[c] = props[c]
@@ -27,15 +27,16 @@ export default class Droppable extends React.Component {
         let classes = 'Droppable';
         if(props.className) classes+=` ${props.className}`;
         if (this.state.over) classes+=' over';
+        const DroppableTag = `${props.tag}`
         return (
-            <div ref="droppable" className={classes} {...filterProps(props)}
+            <DroppableTag ref="droppable" className={classes} {...filterProps(props)}
                     onDrop={this.onDrop.bind(this)}
                     onDragOver={this.onDragOver.bind(this)}
                     onDragEnter={this.onDragEnter.bind(this)}
                     onDragLeave={this.onDragLeave.bind(this)}
                     onDragExit={this.onDragLeave.bind(this)}>
                 {this.props.children}
-            </div>
+            </DroppableTag>
         )
     }
     onDragOver(e) {
@@ -92,5 +93,6 @@ export default class Droppable extends React.Component {
 }
 
 Droppable.defaultProps = {
-    enabled: true
+    enabled: true,
+    tag: 'div'
 }

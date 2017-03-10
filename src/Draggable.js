@@ -9,10 +9,12 @@ export default class Draggable extends React.Component {
             props.onDragStart = this.onDragStart.bind(this)
         }
         delete props.enabled
+        const DraggableTag = `${props.tag}`
+        delete props.tag
         return (
-            <div {...props}> 
+            <DraggableTag {...props}>
                 {this.props.children}
-            </div>
+            </DraggableTag>
         )
     }
     onDragStart(e) {
@@ -25,5 +27,6 @@ export default class Draggable extends React.Component {
 }
 
 Draggable.defaultProps = {
-    enabled: true
+    enabled: true,
+    tag: 'div'
 }
