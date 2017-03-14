@@ -6,7 +6,7 @@ function pickTypes(e) {
 }
 
 function filterProps(props) {
-  let forbidden = ['types', 'className', 'enabled']
+  let forbidden = ['types', 'className', 'enabled', 'wrapperComponent']
   return Object.keys(props).reduce((p, c) => {
     if (!forbidden.includes(c)) {
       p[c] = props[c]
@@ -23,19 +23,24 @@ export default class Droppable extends React.Component {
         }
     }
     render() {
+        let Tag   = 'div'
         let props = Object.assign({}, this.props)
+        if (this.props.wrapperComponent) {
+            Tag   = this.props.wrapperComponent.type
+            props = Object.assign(props, this.props.wrapperComponent.props)
+        }
         let classes = 'Droppable';
         if(props.className) classes+=` ${props.className}`;
         if (this.state.over) classes+=' over';
         return (
-            <div ref="droppable" className={classes} {...filterProps(props)}
+            <Tag ref="droppable" className={classes} {...filterProps(props)}
                     onDrop={this.onDrop.bind(this)}
                     onDragOver={this.onDragOver.bind(this)}
                     onDragEnter={this.onDragEnter.bind(this)}
                     onDragLeave={this.onDragLeave.bind(this)}
                     onDragExit={this.onDragLeave.bind(this)}>
-                {this.props.children}
-            </div>
+                {props.children}
+            </Tag>
         )
     }
     onDragOver(e) {
@@ -64,17 +69,21 @@ export default class Droppable extends React.Component {
         e.preventDefault()
         if (!this.allowed(pickTypes(e))) return
         this.setState({ over : false })
-        var data = !this.props.types ? null : [].concat(this.props.types).reduce((d, type) => {
+        let props = Object.assign({}, this.props)
+        if (this.props.wrapperComponent) props = Object.assign(props, this.props.wrapperComponent.props)
+        const data = !props.types ? null : [].concat(props.types).reduce((d, type) => {
             d[type] = e.dataTransfer.getData(type)
             return d
         },{})
         if (typeof this.props.onDrop === 'function') this.props.onDrop(data, e)
     }
     allowed(attemptingTypes) {
-        if (!this.props.enabled) return false
+        let props = Object.assign({}, this.props)
+        if (this.props.wrapperComponent) props = Object.assign(props, this.props.wrapperComponent.props)
+        if (!props.enabled) return false
         let _attemptingTypes = utils.toArray(attemptingTypes)
-        if (!this.props.types) return true
-        return [].concat(this.props.types).reduce((sum, type) => {
+        if (!props.types) return true
+        return [].concat(props.types).reduce((sum, type) => {
             if (_attemptingTypes.indexOf(type) >= 0) return true
             return sum
         }, false)

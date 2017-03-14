@@ -71,4 +71,16 @@ describe('drag-and-drop', () => {
       assert(!disabled.find('div').props('draggable').draggable)
     })
 
+    it('supports wrapper component for Droppable', () => {
+      const onDrop = sinon.spy()
+      const wrapper = mount(<Droppable wrapperComponent={<section />} onDrop={onDrop} />)
+      wrapper.find('section.Droppable').simulate('drop')
+      assert(onDrop.calledOnce)
+    })
+
+    it('supports wrapper component for Draggable', () => {
+      const wrapper = mount(<Draggable wrapperComponent={<span />} />)
+      assert(wrapper.find('span').props('draggable').draggable)
+    })
+
 })
