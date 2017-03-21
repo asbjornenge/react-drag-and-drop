@@ -41,6 +41,10 @@ So the idea is that you wrap your components in *Draggable* and *Droppable* cont
 
 ## Changelog
 
+### 2.4.0
+
+* Support for `wrapperComponent` prop where one can pass a component to be used instead of the standard components for `Draggable` and `Droppable` :tada: Thanks to @aaa707 for this one :rocket:
+
 ### 2.3.0
 
 * Support for `enabled` prop for Droppable component
