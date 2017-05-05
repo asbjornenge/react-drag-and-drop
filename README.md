@@ -25,7 +25,7 @@ class App extends React.Component {
             </ul>
             <Droppable
                 types={['fruit']} // <= allowed drop types
-                onDrop={this.onDrop.bind(this)}
+                onDrop={this.onDrop.bind(this)}>
                 <ul className="Smoothie"></ul>
             </Droppable>
         </div>
