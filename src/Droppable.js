@@ -21,6 +21,7 @@ export default class Droppable extends React.Component {
         this.state = {
             over : false
         }
+        this.droppable = React.createRef()
     }
     render() {
         let Tag   = 'div'
@@ -33,7 +34,7 @@ export default class Droppable extends React.Component {
         if(props.className) classes+=` ${props.className}`;
         if (this.state.over) classes+=' over';
         return (
-            <Tag ref="droppable" className={classes} {...filterProps(props)}
+            <Tag ref={this.droppable} className={classes} {...filterProps(props)}
                     onDrop={this.onDrop.bind(this)}
                     onDragOver={this.onDragOver.bind(this)}
                     onDragEnter={this.onDragEnter.bind(this)}
@@ -90,7 +91,7 @@ export default class Droppable extends React.Component {
     }
     componentDidMount() {
         // TODO: Listen for window resize?
-        var node  = this.refs.droppable;
+        var node  = this.droppable.current
         this.position = {
             top    : node.offsetTop+5,
             left   : node.offsetLeft+5,
