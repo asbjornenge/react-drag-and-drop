@@ -3,7 +3,6 @@ import React     from 'react'
 import ReactDOM  from 'react-dom';
 import {mount, shallow} from 'enzyme';
 import sinon     from 'sinon'
-import TestUtils from 'react-addons-test-utils';
 import expect    from 'expect';
 import assert    from 'assert';
 import nanodom   from 'nanodom'
