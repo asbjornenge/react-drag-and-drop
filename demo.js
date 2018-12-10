@@ -66,4 +66,7 @@ class Demo extends React.Component {
     }
 }
 
-ReactDOM.render(<Demo />, document.body)
+const app = document.createElement('div')
+document.body.append(app)
+
+ReactDOM.render(<Demo />, app)
