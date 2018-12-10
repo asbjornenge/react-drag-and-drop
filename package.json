@@ -28,10 +28,11 @@
   },
   "homepage": "https://github.com/asbjornenge/react-drag-and-drop",
   "devDependencies": {
+    "@babel/cli": "^7.2.0",
     "@babel/core": "^7.2.0",
+    "@babel/plugin-transform-react-jsx": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
     "@babel/register": "^7.0.0",
-    "babel-plugin-transform-react-jsx": "^6.24.1",
     "babelify": "^10.0.0",
     "budo": "^11.5.0",
     "enzyme": "^3.7.0",
