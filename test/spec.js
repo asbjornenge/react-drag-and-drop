@@ -1,12 +1,14 @@
 import testdom   from 'testdom'
 import React     from 'react'
-import ReactDOM  from 'react-dom';
-import {mount, shallow} from 'enzyme';
+import ReactDOM  from 'react-dom'
 import sinon     from 'sinon'
-import expect    from 'expect';
-import assert    from 'assert';
+import expect    from 'expect'
+import assert    from 'assert'
 import nanodom   from 'nanodom'
+import * as enzyme from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
 import { Draggable, Droppable } from '../src/index'
+enzyme.configure({ adapter: new Adapter() })
 
 testdom('<html><body><div id="app"></div></body></html>')
 
@@ -40,7 +42,7 @@ describe('drag-and-drop', () => {
 
     it(`appends "props className" with Droppable class`, () => {
        let anyOtherClass = "anyotherclass-something";
-       const wrapper = mount(<Droppable className={anyOtherClass} />);
+       const wrapper = enzyme.mount(<Droppable className={anyOtherClass} />);
        expect(wrapper.find(`.Droppable.${anyOtherClass}`).length).toEqual(1);
     })
 
@@ -55,30 +57,30 @@ describe('drag-and-drop', () => {
 
     it('supports disabling Droppable', () => {
       const onDrop = sinon.spy()
-      const disabled = mount(<Droppable enabled={false} onDrop={onDrop} />)
+      const disabled = enzyme.mount(<Droppable enabled={false} onDrop={onDrop} />)
       disabled.find('.Droppable').simulate('drop') 
       assert(!onDrop.calledOnce)
-      const enabled = mount(<Droppable enabled={true} onDrop={onDrop} />)
+      const enabled = enzyme.mount(<Droppable enabled={true} onDrop={onDrop} />)
       enabled.find('.Droppable').simulate('drop') 
       assert(onDrop.calledOnce)
     })
 
     it('supports disabling Draggable', () => {
-      const enabled = mount(<Draggable enabled={true} />)
+      const enabled = enzyme.mount(<Draggable enabled={true} />)
       assert(enabled.find('div').props('draggable').draggable)
-      const disabled = mount(<Draggable enabled={false} />)
+      const disabled = enzyme.mount(<Draggable enabled={false} />)
       assert(!disabled.find('div').props('draggable').draggable)
     })
 
     it('supports wrapper component for Droppable', () => {
       const onDrop = sinon.spy()
-      const wrapper = mount(<Droppable wrapperComponent={<section />} onDrop={onDrop} />)
+      const wrapper = enzyme.mount(<Droppable wrapperComponent={<section />} onDrop={onDrop} />)
       wrapper.find('section.Droppable').simulate('drop')
       assert(onDrop.calledOnce)
     })
 
     it('supports wrapper component for Draggable', () => {
-      const wrapper = mount(<Draggable wrapperComponent={<span />} />)
+      const wrapper = enzyme.mount(<Draggable wrapperComponent={<span />} />)
       assert(wrapper.find('span').props('draggable').draggable)
     })
 
